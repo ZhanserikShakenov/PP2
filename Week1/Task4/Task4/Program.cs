@@ -17,7 +17,7 @@ namespace Task4
                     Console.Write("[*]");                            //output the star cyclically
                 Console.WriteLine();
             }
-            Console.ReadKey();
+            //Console.ReadKey();
         }
     }
 }
