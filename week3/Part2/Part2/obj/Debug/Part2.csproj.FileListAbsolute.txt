@@ -1,0 +1,7 @@
+C:\Users\aka-studio\Desktop\PP2\PP2\week3\Part2\Part2\bin\Debug\Part2.exe.config
+C:\Users\aka-studio\Desktop\PP2\PP2\week3\Part2\Part2\bin\Debug\Part2.exe
+C:\Users\aka-studio\Desktop\PP2\PP2\week3\Part2\Part2\bin\Debug\Part2.pdb
+C:\Users\aka-studio\Desktop\PP2\PP2\week3\Part2\Part2\obj\Debug\Part2.csprojAssemblyReference.cache
+C:\Users\aka-studio\Desktop\PP2\PP2\week3\Part2\Part2\obj\Debug\Part2.csproj.CoreCompileInputs.cache
+C:\Users\aka-studio\Desktop\PP2\PP2\week3\Part2\Part2\obj\Debug\Part2.exe
+C:\Users\aka-studio\Desktop\PP2\PP2\week3\Part2\Part2\obj\Debug\Part2.pdb
