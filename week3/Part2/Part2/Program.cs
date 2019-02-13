@@ -11,13 +11,13 @@ namespace Part2
     {
         static void Main(string[] args)
         {
-            far FarManager = new far();
-            FarManager.Start(@"C:\Users\aka-studio\source");
+            far FarManager = new far();                                         //create new FarManager
+            FarManager.Start(@"C:\Users\aka-studio\source");                    //call with adress
         }
     }
-    class far
+    class far                                                                   //create new class
     {
-        public int cursor;
+        public int cursor;                                                      
         public int size;
         public bool ok;
         public far()
@@ -25,43 +25,43 @@ namespace Part2
             cursor = 0;
             ok = true;
         }
-        public void Delete(FileSystemInfo fs)
+        public void Delete(FileSystemInfo fs)                                   //delete file command - DELETE
         {
             if(fs.GetType()==typeof(DirectoryInfo))
-            Directory.Delete(fs.FullName, true);
+            Directory.Delete(fs.FullName, true);                                //delete even this directory consist something
             else {
-                FileInfo file = new FileInfo(fs.FullName);
+                FileInfo file = new FileInfo(fs.FullName);                      //delete file even it is't directory
                 fs.Delete();
             }
         }
-        public void TextFile(string path)
+        public void TextFile(string path)                                       //reading textfile command - Enter
         {
-            Console.Clear();
-            StreamReader sr = new StreamReader(path);
-            string s = sr.ReadToEnd();
-            Console.WriteLine(s);
-            ConsoleKeyInfo k = Console.ReadKey();
-            if (k.Key == ConsoleKey.Escape)
+            Console.Clear();                                                    //clean console
+            StreamReader sr = new StreamReader(path);                           //create new reader for reading text file
+            string s = sr.ReadToEnd();                                          //read all
+            Console.WriteLine(s);                                               //write in console
+            ConsoleKeyInfo k = Console.ReadKey();   
+            if (k.Key == ConsoleKey.Escape)                                     //close textfile command - Escape
             {
-                sr.Close();
+                sr.Close();                                                     //close for ending
                 return;
             }
             else
-                TextFile(path);
+                TextFile(path);                                                 //else show textfile again
         }
-        public void Up()
+        public void Up()                                                        //cursor up - UpArrow
         {
             cursor--;
             if (cursor < 0)
                 cursor = size - 1;
         }
-        public void Down()
+        public void Down()                                                      //cursor down - DownArrow
         {
             cursor++;
             if (cursor == size)
                 cursor = 0;
         }
-        public void Color(FileSystemInfo file, int index)
+        public void Color(FileSystemInfo file, int index)                       //create function that show color
         {
             if (index == cursor)
                 Console.BackgroundColor = ConsoleColor.Red;
@@ -76,7 +76,7 @@ namespace Part2
                 Console.BackgroundColor = ConsoleColor.Black;
             }
         }
-        public void Show(string path)
+        public void Show(string path)                                             //create function which show to us files 
         {
             DirectoryInfo directory = new DirectoryInfo(path);
             FileSystemInfo[] files = directory.GetFileSystemInfos();
@@ -92,19 +92,19 @@ namespace Part2
         public void Start(string path)
         {
             
-            ConsoleKeyInfo key = Console.ReadKey();
+            ConsoleKeyInfo key = Console.ReadKey();                                 //read a key for command
             FileSystemInfo fs = null;
-            while(key.Key != ConsoleKey.E)
+            while(key.Key != ConsoleKey.E)                                          //work unless you put E
             {
                 DirectoryInfo directory = new DirectoryInfo(path);
                 Console.BackgroundColor = ConsoleColor.Black;
                 Console.Clear();
-                Show(path);
+                Show(path);                                                         //call function show
                 if (size != 0)
                 {
                     key = Console.ReadKey();
-                    fs = directory.GetFileSystemInfos()[cursor];
-                    if (key.Key == ConsoleKey.Enter)
+                    fs = directory.GetFileSystemInfos()[cursor];                    //consider file where my cursor
+                    if (key.Key == ConsoleKey.Enter)                                //and others commands
                     {
                         if (fs.GetType() == typeof(DirectoryInfo))
                         {
@@ -136,7 +136,7 @@ namespace Part2
                         if (fs.GetType() == typeof(DirectoryInfo))
                             Directory.Move(fs.FullName, s);
                         else
-                            File.Move(fs.FullName, s);
+                            File.Move(fs.FullName, s);                         //for rename we can use function move
                     }
                     else if (key.Key == ConsoleKey.UpArrow)
                         Up();

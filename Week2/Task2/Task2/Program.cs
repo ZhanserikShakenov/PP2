@@ -11,17 +11,17 @@ namespace Task2
     {
         static void Main(string[] args)
         {
-            StreamReader sr = new StreamReader(@"C:\Users\aka-studio\Desktop\PP2\PP2\Week2\Task2\Task2/input.txt");
-            string[] s = sr.ReadToEnd().Split();
-            StreamWriter sw = new StreamWriter(@"C:\Users\aka-studio\Desktop\PP2\PP2\Week2\Task2\Task2/output.txt");
+            StreamReader sr = new StreamReader(@"C:\Users\aka-studio\Desktop\PP2\PP2\Week2\Task2\Task2/input.txt"); //create reader
+            string[] s = sr.ReadToEnd().Split();                                                                    //read a text file
+            StreamWriter sw = new StreamWriter(@"C:\Users\aka-studio\Desktop\PP2\PP2\Week2\Task2\Task2/output.txt");//create writer
             for(int i=0; i<s.Length; i++)
-                if (Aprime(int.Parse(s[i])))
+                if (Aprime(int.Parse(s[i])))                                                                        //check for prime
                 {
-                    sw.Write(s[i] + " ");
+                    sw.Write(s[i] + " ");                                                                           //if yes write yes
                 }
-            sw.Close();
+            sw.Close();                                                                                             //and close for ending and saving
         }
-        public static bool Aprime(int num)
+        public static bool Aprime(int num)                                                                          //boolean function for check
         {
             if (num == 1)
                 return false;

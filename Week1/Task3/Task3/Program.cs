@@ -16,7 +16,9 @@ namespace Task3
             for(int i=0; i<n; i++)                                          
             {                                                               
                 a[i] = int.Parse(s[i]);                                     //convert to int then add to array
-                Console.Write(a[i] + " " + a[i] + " ");                     //output double each element
+                //Console.Write(((a[i])-(1/2)+Math.Pow(-1,a[i])*(1/2))/2);
+                Console.WriteLine(Math.Pow(2, 3));
+                //output double each element
             }
             Console.ReadKey();
         }
