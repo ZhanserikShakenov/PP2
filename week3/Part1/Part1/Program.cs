@@ -11,33 +11,33 @@ namespace Part2
     {
         static void Main(string[] args)
         {
-            far FarManager = new far();
-            FarManager.Start(@"C:\Users\aka-studio\source\repos\Task 1\Task 1");
+            far FarManager = new far();                                              //create new farmanager
+            FarManager.Start(@"C:\Users\aka-studio\source\repos\Task 1\Task 1");     //starting with path
         }
     }
-    class far
+    class far                                                                        //create class far
     {
-        public int cursor;
+        public int cursor;                                                           
         public int size;
         public bool ok;
-        public far()
+        public far()                                                                 //create constructor
         {
             cursor = 0;
             ok = true;
         }
-        public void Up()
+        public void Up()                                                            //craete function for cusor up.
         {
             cursor--;
             if (cursor < 0)
                 cursor = size - 1;
         }
-        public void Down()
+        public void Down()                                                          //create function for cursor down.
         {
             cursor++;
             if (cursor == size)
                 cursor = 0;
         }
-        public void Color(FileSystemInfo file, int index)
+        public void Color(FileSystemInfo file, int index)                           //create function which paints console and filenames
         {
             if (index == cursor)
                 Console.BackgroundColor = ConsoleColor.Red;
@@ -54,8 +54,8 @@ namespace Part2
         }
         public void Show(string path)
         {
-            DirectoryInfo directory = new DirectoryInfo(path);
-            FileSystemInfo[] files = directory.GetFileSystemInfos();
+            DirectoryInfo directory = new DirectoryInfo(path);                          //create directory information in path
+            FileSystemInfo[] files = directory.GetFileSystemInfos();                    //create array for information of all file and directroies
             size = files.Length;
             int index = 0;
             foreach(FileSystemInfo fs in files)
@@ -68,13 +68,12 @@ namespace Part2
         public void Start(string path)
         {
             ConsoleKeyInfo key = Console.ReadKey();
-            FileSystemInfo fs = null;
             while(key.Key != ConsoleKey.E)
             {
                 Console.BackgroundColor = ConsoleColor.Black;
                 Console.Clear();
                 Show(path);
-                key = Console.ReadKey();
+                key = Console.ReadKey();                                    //read a key for operation
                 if (key.Key == ConsoleKey.UpArrow)
                     Up();
                 else if (key.Key == ConsoleKey.DownArrow)
